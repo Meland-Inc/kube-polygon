@@ -24,7 +24,7 @@ spec:
         - containerPort: 26657
           name: rpc
         - containerPort: 1317
-          name: restfulAPI
+          name: restfulapi
         volumeMounts:
           - name: heimdall-storage
             mountPath: /root/heimdall_data

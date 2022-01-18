@@ -1,4 +1,4 @@
-FROM public.ecr.aws/o5c4r7f1/heimdall:v0.2.4
+FROM maticnetwork/heimdall:v0.2.4
 
 RUN apt-get install -y systemctl
 
