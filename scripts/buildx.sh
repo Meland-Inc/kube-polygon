@@ -34,8 +34,6 @@ version=$(get_current_version)
 heimdall_image_name=$(get_docker_tag "${PROJECT_NAME}-heimdall" ${version})
 bor_image_name=$(get_docker_tag "${PROJECT_NAME}-bor" ${version})
 
-docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 ${PROJECT_ROOT} -f ${PROJECT_ROOT}/docker/heimdall.dockerfile -t ${heimdall_image_name}
-docker push ${heimdall_image_name}
+docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 ${PROJECT_ROOT} -f ${PROJECT_ROOT}/docker/heimdall.dockerfile -t ${heimdall_image_name} --push
 
-docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 ${PROJECT_ROOT} -f ${PROJECT_ROOT}/docker/bor.dockerfile -t ${bor_image_name}
-docker push ${bor_image_name}
+docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 ${PROJECT_ROOT} -f ${PROJECT_ROOT}/docker/bor.dockerfile -t ${bor_image_name} --push

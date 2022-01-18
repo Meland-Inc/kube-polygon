@@ -1,6 +1,6 @@
 FROM maticnetwork/bor:v0.2.13
 
-RUN apk add jq
+RUN apk add jq bash
 
 COPY ./docker/bor.start.sh /usr/local/bin/bor.start.sh
 
