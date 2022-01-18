@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ include "polygon.fullname" . }}-bor
+  labels:
+    {{- include "polygon.borLabels" . | nindent 4 }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "polygon.borSelectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "polygon.borSelectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+      - name: bor
+        image: {{ .Values.borImage.repository }}:{{ .Values.borImage.tag }}
+        ports:
+        - containerPort: 5001
+          name: api
+        - containerPort: 8080
+          name: gateway
+        volumeMounts:
+          - name: bor-storage
+            mountPath: /data/ipfs
+        resources:
+{{ toYaml .Values.borResources | indent 10 }}
+  {{- if .Values.persistence.enabled }}
+      volumes:
+        - name: bor-storage
+          persistentVolumeClaim:
+            claimName: {{ template "polygon.fullname" . }}-bor
+  {{- else }}
+      volumes:
+        - name: bor-storage
+          emptyDir: {}
+  {{- end }}

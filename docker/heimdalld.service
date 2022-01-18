@@ -1,0 +1,15 @@
+[Unit]
+  Description=heimdalld
+  StartLimitIntervalSec=500
+  StartLimitBurst=5
+
+[Service]
+  Restart=on-failure
+  RestartSec=5s
+  WorkingDirectory=~/
+  ExecStart=/go/bin/heimdalld start --home=/root/heimdall_data
+  Type=simple
+  User=root
+
+[Install]
+  WantedBy=multi-user.target
