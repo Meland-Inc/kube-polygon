@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ template "ipfs.fullname" . }}-heimdall
+  name: {{ template "polygon.fullname" . }}-heimdall
 {{- range $key, $value := .Values.persistence.annotations }}
   {{ $key }}: {{ $value }}
 {{- end }}

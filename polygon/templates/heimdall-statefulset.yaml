@@ -6,6 +6,7 @@ metadata:
     {{- include "polygon.borLabels" . | nindent 4 }}
 spec:
   replicas: 1
+  serviceName: {{ template "polygon.name" . }}-heimdall
   selector:
     matchLabels:
       {{- include "polygon.heimdallSelectorLabels" . | nindent 6 }}

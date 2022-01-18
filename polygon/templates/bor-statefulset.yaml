@@ -6,6 +6,7 @@ metadata:
     {{- include "polygon.borLabels" . | nindent 4 }}
 spec:
   replicas: 1
+  serviceName: {{ template "polygon.name" . }}-bor
   selector:
     matchLabels:
       {{- include "polygon.borSelectorLabels" . | nindent 6 }}
@@ -17,14 +18,19 @@ spec:
       containers:
       - name: bor
         image: {{ .Values.borImage.repository }}:{{ .Values.borImage.tag }}
+        env:
+        - name: HEIMDALL_ADDRESS
+          value: {{ include "polygon.fullname" . }}-heimdall
         ports:
-        - containerPort: 5001
-          name: api
-        - containerPort: 8080
-          name: gateway
+        - containerPort: 8545
+          name: rpc
+        - containerPort: 30303
+          name: peers-tcp
+        - containerPort: 30303
+          name: peers-udp
         volumeMounts:
           - name: bor-storage
-            mountPath: /data/ipfs
+            mountPath: /root/bor_data
         resources:
 {{ toYaml .Values.borResources | indent 10 }}
   {{- if .Values.persistence.enabled }}

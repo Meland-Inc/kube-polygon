@@ -8,9 +8,9 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     - port: 1317
-      targetPort: restfulAPI
+      targetPort: restfulapi
       protocol: TCP
-      name: restfulAPI
+      name: restfulapi
     - port: 26657
       targetPort: rpc
       protocol: TCP

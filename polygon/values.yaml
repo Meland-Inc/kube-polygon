@@ -5,15 +5,15 @@
 replicaCount: 1
 
 borImage:
-  repository: public.ecr.aws/o5c4r7f1/bor
+  repository: 436271674037.dkr.ecr.ap-southeast-1.amazonaws.com/kube-polygon-bor
   pullPolicy: IfNotPresent
-  tag: v0.2.13
+  tag: 6d59811
 
 heimdallImage:
-  repository: public.ecr.aws/o5c4r7f1/heimdall
+  repository: 436271674037.dkr.ecr.ap-southeast-1.amazonaws.com/kube-polygon-heimdall
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: v0.2.4
+  tag: 6d59811
 
 imagePullSecrets: []
 nameOverride: ""
@@ -73,3 +73,10 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+persistence:
+  accessModes:
+    - ReadWriteOnce
+  enabled: true
+  storageClass: gp2
+  size: 2Ti
