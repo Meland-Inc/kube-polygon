@@ -11,6 +11,10 @@ spec:
       targetPort: rpc
       protocol: TCP
       name: rpc
+    - port: 8546
+      targetPort: ws
+      protocol: TCP
+      name: ws
     - port: 30303
       targetPort: peers-udp
       protocol: UDP

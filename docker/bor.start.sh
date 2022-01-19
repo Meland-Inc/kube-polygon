@@ -32,6 +32,7 @@ start() {
         --ws.port 8546 \
         --ipcpath $DATA_DIR/bor.ipc \
         --http.api 'debug,eth,net,web3,txpool,bor' \
+        --ws.api 'debug,eth,net,web3,txpool,bor' \
         --syncmode 'full' \
         --bor.heimdall="http://${HEIMDALL_ADDRESS}:1317" \
         --gcmode 'full' \

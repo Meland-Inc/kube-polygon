@@ -24,6 +24,8 @@ spec:
         ports:
         - containerPort: 8545
           name: rpc
+        - containerPort: 8546
+          name: ws
         - containerPort: 30303
           name: peers-tcp
         - containerPort: 30303
