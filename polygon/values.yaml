@@ -7,7 +7,7 @@ replicaCount: 1
 borImage:
   repository: 436271674037.dkr.ecr.ap-southeast-1.amazonaws.com/kube-polygon-bor
   pullPolicy: IfNotPresent
-  tag: f00a18e
+  tag: "3514590"
 
 heimdallImage:
   repository: 436271674037.dkr.ecr.ap-southeast-1.amazonaws.com/kube-polygon-heimdall
