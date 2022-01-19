@@ -7,13 +7,13 @@ replicaCount: 1
 borImage:
   repository: 436271674037.dkr.ecr.ap-southeast-1.amazonaws.com/kube-polygon-bor
   pullPolicy: IfNotPresent
-  tag: 184e7d3
+  tag: 14cb755
 
 heimdallImage:
   repository: 436271674037.dkr.ecr.ap-southeast-1.amazonaws.com/kube-polygon-heimdall
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: 037cc94
+  tag: 14cb755
 
 imagePullSecrets: []
 nameOverride: ""

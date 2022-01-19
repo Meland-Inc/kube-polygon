@@ -54,10 +54,10 @@ default() {
 wait() {
     while true; do
         sleep 1
-        catching_up=$((curl http://$HEIMDALL_ADDRESS:26657/status || default) | jq -r '.sync_info.catching_up')
+        catching_up=$((curl http://$HEIMDALL_ADDRESS:26657/status || default) | jq -r '.result.sync_info.catching_up')
         echo "wait for catching_up: $catching_up";
         if [ "$catching_up" == "false" ]; then
-            break
+            break-
         fi
     done
 }
