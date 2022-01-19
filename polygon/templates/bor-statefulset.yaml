@@ -18,6 +18,10 @@ spec:
       containers:
       - name: bor
         image: {{ .Values.borImage.repository }}:{{ .Values.borImage.tag }}
+        lifecycle:
+          preStop:
+            exec:
+              command: ["/bin/sh","-c","sleep 180"]
         env:
         - name: HEIMDALL_ADDRESS
           value: {{ include "polygon.fullname" . }}-heimdall
