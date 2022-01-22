@@ -24,7 +24,7 @@ spec:
               command: ["/bin/sh","-c","sleep 180"]
         env:
         - name: HEIMDALL_ADDRESS
-          value: {{ include "heimdall.address" . }}-heimdall
+          value: {{ include "heimdall.address" . }}
         ports:
         - containerPort: 8545
           name: rpc

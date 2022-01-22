@@ -7,7 +7,7 @@ replicaCount: 1
 borImage:
   repository: 436271674037.dkr.ecr.ap-southeast-1.amazonaws.com/kube-polygon-bor
   pullPolicy: IfNotPresent
-  tag: "1f48c21"
+  tag: "c23b083"
 
 heimdallImage:
   enabled: false
@@ -48,9 +48,9 @@ service:
 
 ingress:
   enabled: true
-  className: ""
+  className: nginx
   annotations: {}
-  baseHost: polygon.melandworld.com
+  baseHost: fast-polygon.melandworld.com
   tls: []
 
 heimdallResources:
@@ -82,4 +82,4 @@ persistence:
   storageClass: gp2
   size: 2Ti
 
-heimdallAddress: ""
+heimdallAddress: "polygon-full-node-heimdall"
