@@ -33,7 +33,7 @@ start() {
         --ipcpath $DATA_DIR/bor.ipc \
         --http.api 'debug,eth,net,web3,txpool,bor' \
         --ws.api 'debug,eth,net,web3,txpool,bor' \
-        --syncmode 'full' \
+        --syncmode 'fast' \
         --bor.heimdall="http://${HEIMDALL_ADDRESS}:1317" \
         --gcmode 'full' \
         --networkid '137' \

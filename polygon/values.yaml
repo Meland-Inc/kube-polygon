@@ -7,9 +7,10 @@ replicaCount: 1
 borImage:
   repository: 436271674037.dkr.ecr.ap-southeast-1.amazonaws.com/kube-polygon-bor
   pullPolicy: IfNotPresent
-  tag: "3514590"
+  tag: "1f48c21"
 
 heimdallImage:
+  enabled: false
   repository: 436271674037.dkr.ecr.ap-southeast-1.amazonaws.com/kube-polygon-heimdall
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
@@ -80,3 +81,5 @@ persistence:
   enabled: true
   storageClass: gp2
   size: 2Ti
+
+heimdallAddress: ""
